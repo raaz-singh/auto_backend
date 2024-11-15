@@ -17,13 +17,11 @@ app.use("/util", utilRouter);
 app.use("/video", videoRouter);
 app.use("/blog", blogRouter);
 
-// app.get("/", (req, res) => {
-//   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
-//   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-// });
-app.get("/",(req,res)=>{
-  res.send("Hi roubin");
-})
+app.get("/", (req, res) => {
+  app.use(express.static(path.resolve(__dirname, "frontend", "build")));
+  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+});
+
 app.listen(port, () => {
   console.log(`server started at port ${port}`);
 });
